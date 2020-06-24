@@ -1,16 +1,47 @@
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:async/async.dart';
+import 'dart:async'; 
+import 'dart:convert';
 
-const request = "https://api.hgbrasil.com/weather?key=6a9e0875";
+const request = "https://api.hgbrasil.com/finance/quotations?key=8565a4ec";
 
 void main() async{
 
-  http.Response response = await http.get(request);
-  print(response.body);
-
   runApp(MaterialApp(
-    home: Container(),
+    home: Home()
   ));
 }
+
+Future<Map> getData() async {
+  http.Response response = await http.get(request);
+  return json.decode(response.body);
+}
+
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: Text("\$ Conversor \$"),
+        backgroundColor: Colors.amber,
+        centerTitle: true,
+        ),
+        body: ,
+    );
+  }
+}
+
+
+
+
+
+
+
