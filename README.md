@@ -1,5 +1,7 @@
 # conversor_moedas
 
+<img src = "https://github.com/danielvieiralopes/coversordemoedas/blob/master/recording_20200625_073259.gif">
+
 A new Flutter project.
 
 ## Getting Started
