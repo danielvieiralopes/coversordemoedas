@@ -41,16 +41,24 @@ final euroController = TextEditingController();
   double dolar;
   double euro;
 
+  
+
 void _realChanged(String text){
-  print(text);
+  double real = double.parse(text);
+  dolarController.text = (real/dolar).toStringAsFixed(2);
+  euroController.text = (real/euro).toStringAsFixed(2);
 }
 
 void _dolarChanged(String text){
-  print(text);
+  double dolar = double.parse(text);
+  realController.text = (dolar * this.dolar).toStringAsFixed(2);
+  euroController.text = (dolar * this.dolar / euro).toStringAsFixed(2); 
   
 }
 void _euroChanged(String text){
-  print(text);
+  double euro = double.parse(text);
+  realController.text = (euro * this.euro).toStringAsFixed(2);
+  dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);
   
 }
 
@@ -59,7 +67,7 @@ void _euroChanged(String text){
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text("\$ Conversor \$"),
+          title: Text("Conversor de Moedas"),
           backgroundColor: Colors.amber,
           centerTitle: true,
         ),
